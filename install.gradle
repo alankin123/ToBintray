@@ -1,3 +1,5 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
