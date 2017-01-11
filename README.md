@@ -26,7 +26,9 @@ Android Studio上传到BinTray的gradle配置
     }
 
 2.修改好以上参数后，继续再后面继续引入两个gradle文件
+
 https://github.com/alankin123/ToBintray/blob/master/install.gradle
+
 https://github.com/alankin123/ToBintray/blob/master/bintray.gradle
 
 3.找到工程根目录下的local.properties文件，添加你的账号和apikey，注意一定要将这个文件忽略上传，防止隐私信息泄漏。
