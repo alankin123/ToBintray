@@ -1,59 +1,42 @@
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+
+group = publishedGroupId//自定义引用分组ID（一般为包名）           // Maven Group ID for the artifact
+
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
         pom {
             project {
                 packaging 'aar'
-                name 'code For Android'//描述信息
-                url siteUrl
+                groupId publishedGroupId//自定义引用分组ID（一般为包名）
+                artifactId artifact//自定义引用名称
+
+                // Add your description here
+                name libraryName//库名字
+                description libraryDescription//库说明
+                url siteUrl//github地址（源码地址，或sample地址）
+
+                // Set your license
                 licenses {
                     license {
-                        name 'The Apache software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        name licenseName
+                        url licenseUrl
                     }
                 }
                 developers {
-                    developer {//开发者信息
-                        id ''
-                        name 'alankin'//你的名字和邮箱
-                        email '460682402@qq.com'
+                    developer {
+                        id developerId//开发者ID
+                        name developerName//开发者名称
+                        email developerEmail//开发者邮箱
                     }
                 }
                 scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
+                    connection gitUrl//github克隆地址
+                    developerConnection gitUrl//github克隆地址
+                    url siteUrl//github地址（源码地址，或sample地址）
+
                 }
             }
         }
     }
-}
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-javadoc {
-    options{
-        encoding 'UTF-8'
-        charSet 'UTF-8'
-        author true
-    }
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }
