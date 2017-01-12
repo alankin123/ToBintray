@@ -10,25 +10,24 @@ classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
 classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3 
  
 2.将AS中把依赖代码提取成一个依赖工程（module），然后把application module依赖于这个module，在依赖module的build.gradle文件中添加如下预定义变量。这些变量就是以后我们上传到bintray上时的参数。
- 
+     
     ext {
-    bintrayRepo = 'maven'//仓库名称
-    bintrayName = 'mypicker'//工程名称（仓库里面新建的包名）
-    publishedGroupId = 'com.idisfkj.picker'//一般是自己的包名
-    libraryName = 'MyPicker'//工程名称
-    artifact = 'mypicker'//工程名称
-    libraryDescription = 'A pickerView on Android'//工程的一些说明
-    siteUrl = 'https://github.com/idisfkj/idisfkj.picker'//工程在github的上的url
-    gitUrl = 'https://github.com/idisfkj/idisfkj.picker.git'//工程在github的上的克隆url
-    libraryVersion = '1.2.1'//定义工程的版本号
-    developerId = 'idisfkj'//开发者ID
-    developerName = 'idisfkj'//开发者名称
-    developerEmail = 'idisfkj@qq.com'//开发者邮箱
-    licenseName = 'The Apache Software License, Version 2.0'//证书名称，不用改
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'//证书地址，不用改
-    allLicenses = ["Apache-2.0"]//证书类型，不用改
-    }
-
+    bintrayRepo = 'mylibrary'//bintray仓库名称
+    bintrayName = 'mylibrary'//bintray仓库中新建包名称
+    publishedGroupId = 'com.alankin.mylibrary'//自定义引用分组ID（一般为包名）
+    artifact = 'mylibrary'//自定义引用名称
+    libraryVersion = '0.0.2'//版本说明
+    libraryName = 'mylibrary'//库名字
+    libraryDescription = 'A mylibrary on Android'//库说明
+    siteUrl = 'https://github.com/alankin123/MyLearn'//github地址
+    gitUrl = 'https://github.com/alankin123/MyLearn.git'//github克隆地址
+    developerId = ''//开发者ID
+    developerName = 'alankin'//开发者名称
+    developerEmail = '460682402@qq.com'//开发者邮箱
+    licenseName = 'The Apache Software License, Version 2.0'//证书名称
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'//证书路径
+    allLicenses = ["Apache-2.0"]//证书类型
+    }  
 3.修改好以上参数后，继续再后面继续添加上这两个gradle脚本
 
 apply from: 'https://github.com/alankin123/ToBintray/blob/master/install.gradle'  
