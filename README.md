@@ -30,8 +30,8 @@ classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3
     }  
 3.修改好以上参数后，继续再后面继续添加上这两个gradle脚本
 
-apply from: 'https://github.com/alankin123/ToBintray/blob/master/install.gradle'  
-apply from: 'https://github.com/alankin123/ToBintray/blob/master/bintray.gradle'
+apply from: "https://raw.githubusercontent.com/alankin123/ToBintray/master/install.gradle"  
+apply from: "https://raw.githubusercontent.com/alankin123/ToBintray/master/bintray.gradle"  
 
 4.找到工程根目录下的local.properties文件，添加你的账号和apikey
 如：  
